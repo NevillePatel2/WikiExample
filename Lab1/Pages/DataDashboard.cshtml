@@ -1,0 +1,190 @@
+﻿@page
+@model Lab1.Pages.DataDashboardModel
+@{
+}
+<style>
+    body {
+        background-color: #DACCE6;
+        font-family: Arial, sans-serif;
+    }
+
+   /* Chart styles */
+    .chart-container {
+        position: relative;
+        height: 400px;
+    }
+     h1 {
+         text-align: center;
+         font-weight: bold;
+         color: #472b7f;
+     }
+
+       h4 {
+          text-align: center;
+          font-weight: bold;
+          color: #472b7f;
+      }
+    /* Form styles */
+    .form-group label {
+        font-weight: 600;
+         
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+         text-align: center;
+    }
+
+    .chart-container {
+        height: 300px;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: none;
+    }
+
+    /* Button styles */
+    .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+    .btn-primary:hover, .btn-primary:focus {
+        background-color: var(--dark-color);
+        border-color: var(--dark-color);
+    }
+
+    .btn-secondary {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+    }
+
+    .btn-secondary:hover, .btn-secondary:focus {
+        background-color: var(--dark-color);
+        border-color: var(--dark-color);
+    }
+
+    /* Table styles */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        background-color: transparent;
+    }
+
+    th {
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.1rem;
+        border-bottom: 0.1rem solid var(--border-color);
+         text-align: center;
+    }
+
+    td {
+        font-size: 0.85rem;
+        vertical-align: middle;
+        border-bottom: 0.1rem solid var(--border-color);
+        text-align: center;
+        
+    }
+</style>
+
+
+
+<div class="container mt-4">
+    <h1 class="text-center">Data Dashboard</h1>
+    <hr>
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="card p-4 mb-4">
+                <h4>OH Wait Time/Class</h4>
+                <div class="chart-container">
+                    <canvas id="wait-time-chart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="card p-4 mb-4">
+                <h4>Average Queue Length/Class</h4>
+                <div class="chart-container">
+                    <canvas id="queue-length-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="card p-4 mb-4">
+                <h4>OH Signups/Class</h4>
+                <div class="chart-container">
+                    <canvas id="meeting-time-chart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="card p-4 mb-4">
+                <h4>Visitors/Day</h4>
+                
+                <div class="chart-container">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>37</td>
+                                    <td>51</td>
+                                    <td>42</td>
+                                    <td>63</td>
+                                    <td>25</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card p-4">
+                <h4 class="text-center">General Office Hours Data</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Total Signups</th>
+                                <th>Attendance Rate</th>
+                                <th>Average Wait Time</th>
+                                <th>Average Meeting Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                <tr>
+                                    <td>1495</td>
+                                    <td>89%</td>
+                                    <td>12 mins</td>
+                                    <td>17 mins</td>
+                                </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

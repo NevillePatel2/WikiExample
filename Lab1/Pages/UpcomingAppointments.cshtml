@@ -1,0 +1,129 @@
+﻿@page
+@model Lab1.Pages.UpcomingAppointmentsModel
+@{
+    ViewData["Title"] = "Upcoming Appointments";
+}
+<style>
+    body {
+        background-color: #DACCE6;
+        font-family: Arial, sans-serif;
+    }
+
+    h4 {
+        text-align: center;
+        font-weight: bold;
+        color: #472b7f;
+        margin-top: 2rem;
+    }
+
+    table {
+        margin: 2rem auto;
+        background-color: #FFFFFF;
+        border-radius: 0.5rem;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    th,
+    td {
+        padding: 1rem;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    th {
+        background-color: #472b7f;
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+
+    td {
+        background-color: #F7F7F7;
+        color: #333333;
+    }
+
+    .text-danger {
+        color: #FF4136;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #472b7f;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #DACCE6;
+        }
+</style>
+<h4>My Upcoming 1-on-1 Meetings:</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Professor:</th>
+            <th>Date:</th>
+            <th>Start Time:</th>
+            <th>Purpose:</th>
+            <th>Location:</th>
+            <th>Manage:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var SpecificMeetings in Model.SpecificMeetingsList)
+            {
+                <tr>
+                    <td>@SpecificMeetings.facFirstName @SpecificMeetings.facLastName</td>
+                    <td>@SpecificMeetings.date</td>
+                    <td>@SpecificMeetings.startTime</td>
+                    <td>@SpecificMeetings.purpose</td>
+                    <td>@SpecificMeetings.roomNumber</td>
+                    <td>
+                        <a asp-page="ManageMeeting" class="btn btn-primary" asp-route-meetingid="@SpecificMeetings.meetingID">Select</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+<h4>My Upcoming Office Hours Appointments:</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th>Professor:</th>
+            <th>Date:</th>
+            <th>Start Time:</th>
+            <th>End Time:</th>
+            <th>Purpose:</th>
+            <th>Location:</th>
+            <th>View Queue:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var SpecificQueues in Model.SpecificQueuesList)
+            {
+                <tr>
+                    <td>@SpecificQueues.facFirstName @SpecificQueues.facLastName</td>
+                    <td>@SpecificQueues.date</td>
+                    <td>@SpecificQueues.startTime</td>
+                    <td>@SpecificQueues.endTime</td>
+                    <td>@SpecificQueues.purpose</td>
+                    <td>@SpecificQueues.roomNumber</td>
+                    <td>
+                        <a asp-page="ViewQueue" class="btn btn-primary" asp-route-officehoursid="@SpecificQueues.officeHoursID">Select</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

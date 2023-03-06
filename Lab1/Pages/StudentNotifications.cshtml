@@ -1,0 +1,145 @@
+﻿@page
+@model Lab1.Pages.StudentNotificationsModel
+@{
+    ViewData["Title"] = "Notification Hub";
+}
+
+<style>
+    body {
+        background-color: #DACCE6;
+        font-family: Arial, sans-serif;
+    }
+
+    h3 {
+        text-align: center;
+        font-weight: bold;
+        color: #472b7f;
+    }
+
+    
+
+    h5 {
+        font-weight: bold;
+        color: #472b7f;
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #472b7f;
+    }
+
+    select,
+    input[type="date"],
+    input[type="time"],
+    input[type="text"] {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #CED4DA;
+        border-radius: 0.25rem;
+        background-color: #F0F0F0;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+    }
+
+        select:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #AAA;
+        }
+
+    .btn-primary {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        background-color: #9C7FBA;
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #472b7f;
+        }
+
+    .notification-item {
+        background-color: #FFFFFF;
+        border: 1px solid #CED4DA;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .notification-item-heading {
+        font-weight: bold;
+        color: #472b7f;
+        margin-bottom: 0.5rem;
+    }
+
+    .notification-item-content {
+        color: #666;
+    }
+
+    .notification-item-time {
+        font-size: 0.75rem;
+        color: #999;
+        margin-top: 0.25rem;
+    }
+
+    .notification-item-action {
+        margin-top: 0.5rem;
+    }
+
+        .notification-item-action button {
+            background-color: #9C7FBA;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .notification-item-action button:hover {
+                background-color: #472b7f;
+            }
+
+</style>
+<br />
+<h3>Notification Hub</h3>
+@{
+    foreach(var Notification in Model.SpecificNotificationsList)
+    {
+        if (Notification.Sender.Equals("Faculty"))
+        {
+
+            <div class="notification-hub">
+
+                <div class="notification-list">
+                    <div class="notification-item">
+                        <div class="notification-item-heading">New message from @Notification.FacFirstName @Notification.FacLastName</div>
+                        <div class="notification-item-content">@Notification.Message</div>
+                        <div class="notification-item-time">@Notification.Timestamp</div>
+                        <form method="post">
+                            <div class="notification-item-action">
+                                <input type="hidden" asp-for="NotificationID" value="@Notification.NotificationID" />
+                                <button>Dismiss</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            }
+            
+        
+        
+    }
+
+}
+

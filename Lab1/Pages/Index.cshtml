@@ -1,0 +1,89 @@
+﻿@*Submission By: Devin Roche, Ryan Cunningham, Alex Cybyk
+    2/11/2023
+    Section 2
+*@
+
+
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<style>
+    body {
+        background-color: #DACCE6;
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        font-family: 'Helvetica', sans-serif;
+        
+    }
+
+    h3 {
+        font-family: 'Helvetica', sans-serif;
+        
+    }
+
+    footer {
+        background-color: white;
+    }
+
+    
+</style>
+<br />
+<div class="text-center">
+    <h1><strong>Office Hours Management System</strong></h1>
+</div>
+<br />
+<div class="text-center">
+    <h3 class="display-10">Create, Manage, and Attend Meetings</h3>
+</div>
+<br />
+<br />
+<style>
+    .center {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+    }
+</style>
+<img src="\Images\James_Madison_University_seal.svg.png" 
+alt="JMU Seal" width="300" height="300" class="center">
+<br />
+
+
+@{
+    if (HttpContext.Session.GetString("username") != null)
+    {
+    <br />
+    <div class="center">
+                    <h3>Welcome, @HttpContext.Session.GetString("username")!</h3><br/>
+                        <form method="post" asp-page-handler="logout">
+                                <button type="submit" style="background-color: #472b7f;" class="btn btn-primary">Logout</button>
+                        </form>
+    </div>
+
+    }
+    else{
+    <br />
+    <br />
+    <div class="d-flex justify-content-center">
+            
+                            <a asp-page="./LoginAndSignup/LoginRole" style="background-color: #472b7f;" class="btn btn-primary mx-2">Log In</a>
+                            <a asp-page="./LoginAndSignup/RoleSelection" style="background-color: #472b7f;" class="btn btn-primary mx-2">Sign Up</a>
+    </div>
+    }
+}
+
+
+
+
+
+
+<div class="text-center">
+    <br />
+    <p>Devin Roche, Ryan Cunningham, Alex Cybyk</p>
+</div>
+

@@ -1,0 +1,124 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Lab1
+build_property.RootNamespace = Lab1
+build_property.ProjectDir = C:\Users\labpatron\Desktop\Lab1\Lab1\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\labpatron\Desktop\Lab1\Lab1
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/CreateMeeting.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlTWVldGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/DataDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGF0YURhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/FacultyNotifications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFjdWx0eU5vdGlmaWNhdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/LoginAndSignup/FacultyAcctSignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5BbmRTaWdudXBcRmFjdWx0eUFjY3RTaWduVXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/LoginAndSignup/FacultyLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5BbmRTaWdudXBcRmFjdWx0eUxvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/LoginAndSignup/LoginRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5BbmRTaWdudXBcTG9naW5Sb2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/LoginAndSignup/RoleSelection.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5BbmRTaWdudXBcUm9sZVNlbGVjdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/LoginAndSignup/StudentAcctSignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5BbmRTaWdudXBcU3R1ZGVudEFjY3RTaWduVXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/LoginAndSignup/StudentLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5BbmRTaWdudXBcU3R1ZGVudExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/ManageMeeting.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlTWVldGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/ManageOfficeHours.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlT2ZmaWNlSG91cnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/OfficeHoursSignup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2ZmaWNlSG91cnNTaWdudXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/ScheduleOfficeHours.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVPZmZpY2VIb3Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VhcmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/StudentNotifications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudE5vdGlmaWNhdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/StudentSignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudFNpZ25VcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/UpcomingAppointments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBjb21pbmdBcHBvaW50bWVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/ViewOfficeHours.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld09mZmljZUhvdXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/ViewQueue.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld1F1ZXVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/labpatron/Desktop/Lab1/Lab1/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-w63aox5a8i

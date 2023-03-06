@@ -1,0 +1,132 @@
+﻿@page
+@model Lab1.Pages.ScheduleOfficeHoursModel
+@{
+    ViewData["Title"] = "Schedule Office Hours";
+}
+<style>
+    body {
+        background-color: #DACCE6;
+        font-family: Arial, sans-serif;
+    }
+
+    h3 {
+        text-align: center;
+        font-weight: bold;
+        color: #472b7f;
+    }
+
+    form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 1rem;
+        background-color: #FFFFFF;
+        border-radius: 0.5rem;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h5 {
+        font-weight: bold;
+        color: #472b7f;
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #472b7f;
+    }
+
+    select,
+    input[type="date"],
+    input[type="time"],
+    input[type="text"] {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #CED4DA;
+        border-radius: 0.25rem;
+        background-color: #F0F0F0;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+    }
+
+    select:focus,
+    input[type="date"]:focus,
+    input[type="time"]:focus,
+    input[type="text"]:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #AAA;
+    }
+
+    .btn-primary {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        background-color: #9C7FBA;
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+            background-color: #472b7f;
+    }
+
+    
+</style>
+
+<br />
+
+<form asp-page-handler="SingleSelect" method="post">
+    <h5 class="text-center">Create New Office Hours Slot</h5>
+
+    <div class="form-group">
+        <label for="SelectedClass">Select Class:</label>
+        <select asp-for="SelectedClass" class="form-select">
+            @foreach (var Class in Model.ClassList)
+            {
+                <option value="@Class.classID">@Class.className</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" asp-for="date" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="startTime">Start Time:</label>
+        <input type="time" asp-for="startTime" class="form-control" required/>
+    </div>
+
+    <div class="form-group">
+        <label for="endTime">End Time:</label>
+        <input type="time" asp-for="endTime" class="form-control" required/>
+    </div>
+    <div class="form-group">
+        <label for="purpose">Purpose:</label>
+        <input type="text" asp-for="purpose" class="form-control" maxlength="25" required />
+    </div>
+
+    <div class="form-group">
+        <label for="SelectedLocation">Location:</label>
+        <select asp-for="SelectedLocation" class="form-select">
+            @foreach (var Location in Model.LocationList)
+            {
+                <option value="@Location.locationID">@Location.roomNumber</option>
+            }
+        </select>
+        </div>
+    <div class="row justify-content-center">
+        <div class="col-6 text-center">
+            <button type="submit" class="btn btn-primary" name="button" value="submit">Schedule Office Hours Slot</button>
+        </div>
+    </div>
+        </form>
+
+           
+
+
+

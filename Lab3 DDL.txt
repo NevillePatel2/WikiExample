@@ -1,0 +1,124 @@
+﻿CREATE TABLE Location(
+        LocationID int Identity(1,1) PRIMARY KEY,
+        RoomNumber VARCHAR(20) NOT NULL,
+        Capacity int);
+
+
+CREATE TABLE Faculty(
+        FacultyID int Identity(1,1) PRIMARY KEY,
+        FacUsername VARCHAR(15) NOT NULL,
+        FacFirstName VARCHAR(15) NOT NULL,
+        FacLastName VARCHAR(15) NOT NULL,
+        FacEmail VARCHAR(30) NOT NULL,
+        Role VARCHAR(15) NOT NULL,
+        LocationID int FOREIGN KEY REFERENCES Location(LocationID));
+
+
+CREATE TABLE Student(
+        StudentID int Identity(1,1) PRIMARY KEY,
+        StuUsername VARCHAR(15) NOT NULL,
+        StuFirstName VARCHAR(15) NOT NULL,
+        StuLastName VARCHAR(15) NOT NULL,
+        StuEmail VARCHAR(30) NOT NULL,
+        StuPhone VARCHAR(10),
+        StuMajor VARCHAR(30),
+        Role VARCHAR(15) NOT NULL,
+        PartnerID int NULL,
+        FOREIGN KEY (PartnerID) REFERENCES Student(StudentID));
+
+
+CREATE TABLE Class(
+        ClassID int Identity(1,1) PRIMARY KEY,
+        ClassName VARCHAR(30) NOT NULL,
+        ClassStart VARCHAR(10) NOT NULL,
+        ClassEnd VARCHAR(10) NOT NULL,
+        SectionNumber int NOT NULL,
+        ClassDesc VARCHAR(30),
+        Credits int NOT NULL,
+        LocationID int FOREIGN KEY REFERENCES Location(LocationID),
+        FacultyID int FOREIGN KEY REFERENCES Faculty(FacultyID));
+
+
+CREATE TABLE Meeting(
+        MeetingID int Identity(1,1) PRIMARY KEY,
+        Purpose VARCHAR(30),
+        Date VARCHAR(30) NOT NULL,
+        StartTime VARCHAR(30) NOT NULL,
+        LocationID int FOREIGN KEY REFERENCES Location(LocationID),
+        FacultyID int FOREIGN KEY REFERENCES Faculty(FacultyID),
+        StudentID int FOREIGN KEY REFERENCES Student(StudentID));
+
+
+CREATE TABLE OfficeHours(
+        OfficeHoursID int Identity(1,1) PRIMARY KEY,
+        Date VARCHAR(30) NOT NULL,
+        StartTime VARCHAR(30) NOT NULL,
+        EndTime VARCHAR(30) NOT NULL,
+        Purpose VARCHAR(30),
+        LocationID int FOREIGN KEY REFERENCES Location(LocationID),
+        FacultyID int FOREIGN KEY REFERENCES Faculty(FacultyID),
+        ClassID int FOREIGN KEY REFERENCES Class(ClassID));
+
+
+
+
+CREATE TABLE Queue(
+        QueueID int Identity(1,1) PRIMARY KEY,
+        ArrivalTime VARCHAR(30) NOT NULL,
+        OfficeHoursID int FOREIGN KEY REFERENCES OfficeHours(OfficeHoursID),
+        StudentID int FOREIGN KEY REFERENCES Student(StudentID));
+
+
+CREATE TABLE Enrollment(
+        StudentID int PRIMARY KEY FOREIGN KEY REFERENCES Student(StudentID),
+        ClassID int FOREIGN KEY REFERENCES Class(ClassID));
+
+
+CREATE TABLE Notification(
+        NotificationID int Identity(1,1) PRIMARY KEY,
+        Message VARCHAR(200) NOT NULL,
+        Sender VARCHAR(30) NOT NULL,
+        Timestamp VARCHAR(30) NOT NULL,
+        FacultyID int FOREIGN KEY REFERENCES Faculty(FacultyID),
+        StudentID int FOREIGN KEY REFERENCES Student(StudentID),
+        OfficeHoursID int FOREIGN KEY REFERENCES OfficeHours(OfficeHoursID),
+        QueueID int FOREIGN KEY REFERENCES Queue(QueueID),
+        MeetingID int FOREIGN KEY REFERENCES Meeting(MeetingID));
+
+
+insert into Location (RoomNumber,Capacity) VALUES ('Hartman 2046',6);
+insert into Location (RoomNumber,Capacity) VALUES ('Hartman 2047',6);
+insert into Location (RoomNumber,Capacity) VALUES ('Hartman 2048',6);
+insert into Location (RoomNumber,Capacity) VALUES ('Showker 2104',32);
+insert into Location (RoomNumber,Capacity) VALUES ('Showker 2105',32);
+insert into Location (RoomNumber,Capacity) VALUES ('Showker 2106',32);
+
+
+
+
+insert into Student (StuUsername,StuFirstName,StuLastName,StuEmail,StuPhone,StuMajor,Role) VALUES ('acybyk20','Alex','Cybyk','acybyk20@gmail.com','7038686193','CIS','Student');
+insert into Student (StuUsername,StuFirstName,StuLastName,StuEmail,StuPhone,StuMajor,Role) VALUES ('ryancun99','Ryan','Cunningham','ryancun99@gmail.com','9737699131','CIS','Student');
+insert into Student (StuUsername,StuFirstName,StuLastName,StuEmail,StuPhone,StuMajor,Role) VALUES ('devinroche13','Devin','Roche','devinroche13@gmail.com','7036776187','CIS','Student');
+insert into Student (StuUsername,StuFirstName,StuLastName,StuEmail,StuPhone,StuMajor,Role) VALUES ('admin','admin',' ','admin@jmu.edu','1234567890','CIS','Student');
+
+
+
+
+insert into Faculty (FacUsername,FacFirstName,FacLastName,FacEmail,LocationID,Role) VALUES ('ezelljd','Jeremy','Ezell','ezelljd@jmu.edu',1,'Faculty');
+insert into Faculty (FacUsername,FacFirstName,FacLastName,FacEmail,LocationID,Role) VALUES ('dillontw','Tom','Dillon','dillontw@jmu.edu',2,'Faculty');
+insert into Faculty (FacUsername,FacFirstName,FacLastName,FacEmail,LocationID,Role) VALUES ('mitrimx','Mike','Mitri','mitrimx@jmu.edu',3,'Faculty');
+insert into Faculty (FacUsername,FacFirstName,FacLastName,FacEmail,LocationID,Role) VALUES ('admin','admin',' ','admin@jmu.edu',3,'Faculty');
+
+
+
+
+insert into Class (ClassName,ClassStart,ClassEnd,SectionNumber,ClassDesc,Credits,LocationID,FacultyID) VALUES ('CIS 484','11:10 am','12:25 pm',1,'CIS Capstone',3,1,2);
+insert into Class (ClassName,ClassStart,ClassEnd,SectionNumber,ClassDesc,Credits,LocationID,FacultyID) VALUES ('CIS 434','2:20 pm','3:35 pm',1,'IT Consulting',3,2,1);
+insert into Class (ClassName,ClassStart,ClassEnd,SectionNumber,ClassDesc,Credits,LocationID,FacultyID) VALUES ('CIS 331','1:50 pm','3:05 pm',1,'Java Programming',3,2,3);
+
+
+
+
+insert into OfficeHours (Date,StartTime,EndTime,Purpose,LocationID,FacultyID,ClassID) VALUES ('02/26/2023','3:00 PM','4:00 PM','Q&A',4,3,1);
+insert into OfficeHours (Date,StartTime,EndTime,Purpose,LocationID,FacultyID,ClassID) VALUES ('02/26/2023','1:00 PM','4:00 PM','Q&A',5,2,2);
+insert into OfficeHours (Date,StartTime,EndTime,Purpose,LocationID,FacultyID,ClassID) VALUES ('02/26/2023','2:00 PM','5:00 PM','Q&A',6,1,3);

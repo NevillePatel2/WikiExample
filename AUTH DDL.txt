@@ -1,0 +1,24 @@
+﻿CREATE TABLE StuHashLogin(
+        StuHashID int Identity(1,1) PRIMARY KEY,
+        StuHashUsername VARCHAR(200) UNIQUE NOT NULL,
+        StuHashPassword VARCHAR(200) NOT NULL);
+
+
+CREATE TABLE FacHashLogin(
+        FacHashID int Identity(1,1) PRIMARY KEY,
+        FacHashUsername VARCHAR(200) UNIQUE NOT NULL,
+        FacHashPassword VARCHAR(200) NOT NULL);
+
+
+insert into StuHashLogin(StuHashUsername,StuHashPassword) VALUES ('admin','1000:+e48vVmr6GCT3Fjvm5xPiMguyuRU4sdw:lmTOwlw5s0eaWj8nplod/tOQYqc=');
+insert into StuHashLogin(StuHashUsername,StuHashPassword) VALUES ('acybyk20','1000:JxyNcLZZ7vlQxJFHmxR3MflHHNOOYirA:aiBMdgOmdSBj4451l6HPtr7dQgE=');
+insert into StuHashLogin(StuHashUsername,StuHashPassword) VALUES ('ryancun99','1000:9zxr1JhqmlTaHj9r/15f4Bqts7JH/kQ5:QBXgda18+1OKbPJrmnlHRXOogvg=');
+insert into StuHashLogin(StuHashUsername,StuHashPassword) VALUES ('devinroche13','1000:4tihGvKdvDlDz1AD/o54Ppwff8FKhdYj:E1quLlRozi/UaFvvwt7y2PYpIHE=');
+
+
+
+
+insert into FacHashLogin(FacHashUsername,FacHashPassword) VALUES ('admin','1000:sKVjpgQydqtEFqR+hSXuYniTKVf61Zk3:X4iS9A0M8kJ31P20YpUXnKHqeiA=');
+insert into FacHashLogin(FacHashUsername,FacHashPassword) VALUES ('ezelljd','1000:JgHh3rIi+G+Cw2Ai+PbfBLdwlTqNpBgT:Ih9qwJNqea9BBiGbmwMdYdKN2Bc=');
+insert into FacHashLogin(FacHashUsername,FacHashPassword) VALUES ('dillontw','1000:q0OngnRopkyKh6N/MHYBvLrG+Q14IexK:dquJBCTk6ry1tOfhCyHxYxIiKrE=');
+insert into FacHashLogin(FacHashUsername,FacHashPassword) VALUES ('mitrimx','1000:4dyRzwPD3aJTtcTMIyIvPBBXLZtvWf4p:DOixux++duP/yxlI1MEUqCSf/KA=');

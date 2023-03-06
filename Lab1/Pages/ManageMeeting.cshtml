@@ -1,0 +1,127 @@
+﻿@page
+@model Lab1.Pages.ManageMeetingModel
+@{
+    ViewData["Title"] = "Manage Meeting";
+}
+
+<style>
+    body {
+        background-color: #DACCE6;
+        font-family: Arial, sans-serif;
+    }
+
+    h3 {
+        text-align: center;
+        font-weight: bold;
+        color: #472b7f;
+        margin-top: 2rem;
+    }
+
+    h5 {
+        text-align: left;
+        font-weight: bold;
+        color: #472b7f;
+        margin-top: 2rem;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem auto;
+    }
+
+    select {
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    table {
+        margin: 2rem auto;
+        background-color: #FFFFFF;
+        border-radius: 0.5rem;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    th,
+    td {
+        padding: 1rem;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    th {
+        background-color: #472b7f;
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+
+    td {
+        background-color: #F7F7F7;
+        color: #333333;
+    }
+
+    .text-danger {
+        color: #FF4136;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #472b7f;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #0062B1;
+        }
+</style>
+<h3 style="text-align: center;">Manage Meeting</h3>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Professor:</th>
+            <th>Date:</th>
+            <th>Start Time:</th>
+            <th>Purpose:</th>
+            <th>Location:</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var SpecificMeeting in Model.SpecificMeetingsList)
+            {
+                <tr>
+                    <td>@SpecificMeeting.facFirstName @SpecificMeeting.facLastName</td>
+                    <td>@SpecificMeeting.date</td>
+                    <td>@SpecificMeeting.startTime</td>
+                    <td>@SpecificMeeting.purpose</td>
+                    <td>@SpecificMeeting.roomNumber</td>
+
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<br />
+<form method="post" asp-page-handler="CancelMeeting">
+    <div class="text-center">
+        <button type="submit" class="btn btn-danger">
+            Cancel Meeting
+        </button>
+    </div>
+</form>

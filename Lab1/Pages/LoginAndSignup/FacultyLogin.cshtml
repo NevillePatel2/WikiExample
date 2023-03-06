@@ -1,0 +1,103 @@
+﻿@page
+@model Lab1.Pages.LoginAndSignup.FacultyLoginModel
+@{
+    ViewData["Title"] = "Faculty Login";
+}
+
+<style>
+    body {
+        background-color: #DACCE6;
+        font-family: Arial, sans-serif;
+    }
+
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0px 0px 20px #888888;
+        background-color: #FFFFFF;
+        border-radius: 0.25rem;
+        
+        padding: 1rem;
+    }
+
+    .login-title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #472b7f;
+        margin-bottom: 2rem;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #CED4DA;
+        border-radius: 0.25rem;
+        background-color: #F0F0F0;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+    }
+
+    .form-input:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #AAA;
+    }
+
+    .login-button {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #472b7f;
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 1rem;
+    }
+
+    .login-button:hover {
+        background-color: #2D2D2D;
+    }
+
+    .login-message {
+        margin-top: 1rem;
+        font-size: 0.875rem;
+        font-weight: bold;
+        color: #2D2D2D;
+    }
+
+    .login-message--success {
+        color: #5CB85C;
+    }
+
+    .login-message--error {
+        color: #D9534F;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-box">
+        <div class="login-title">Faculty Login</div>
+        <form method="post">
+            <input type="text" class="form-input" id="username" name="Username" placeholder="Username" value="@Model.Username" required>
+            <input type="password" class="form-input" id="password" name="Password" placeholder="Password" value="@Model.Password" required>
+            <button type="submit" class="login-button">Log In</button>
+        </form>
+        @if (HttpContext.Session.GetString("username") != null)
+        {
+            <p class="login-message login-message--success">@ViewData["LoginMessage"]</p>
+        }
+        else
+        {
+            <p class="login-message login-message--error">@ViewData["LoginMessage"]</p>
+        }
+    </div>
+</div>

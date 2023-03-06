@@ -1,0 +1,42 @@
+Students worked with: 
+- Devin Roche, Alex Cybyk, Ryan Cunningham
+
+INSTRUCTIONS:
+
+- All necessary pages needed to test requirements can be accessed via the nav bar (based on whose logged in)
+
+- You can log in as BOTH a student and faculty using:
+	Username: admin
+	Password: password
+
+- If you would like to test functionality further, you can log in with the following accounts:
+	
+	Students:
+	- Username: acybyk20		Password: Password123
+	- Username: devinroche13	Password: Password213
+	- Username: ryancun99		Password: Password321
+
+	Faculty:
+	- Username: ezelljd		Password: Password456
+	- Username: mitrimx		Password: Password564
+	- Username: dillontw		Password: Password654
+
+- POPULATE AND CLEAR: 
+	- When creating a new faculty or student account you can use the populate button to create a new test account
+			- You will need to set your own password for the test account
+
+- NOTIFICATIONS ARE TRIGGERED WHEN:
+	- When a faculty selects a student in the queue and either notifies them that they are ready to be seen or deletes them from the queue,
+		the student will be notified
+	- When a student leaves a queue the faculty will be notified
+	- When a faculty cancels an office hours slot, all students in the queue will be notified
+	- When the dismiss button is hit in the Notification Hub, it will delete that notification from the DB and update the counter in the nav bar
+
+- BUGS: 
+	- Faculty cannot select and notify students in a queue consecutively without exiting out of the Manage Office Hours page and going back in
+		- When a faculty selects a student from the queue (to either notify next or delete from queue) buttons and lists work correctly until they need to
+	  	select a new student from the dropdown list to notify. A new student can only be selected and notified by going out of the page and reloading it.
+			- if you have any feedback on how to fix this it would be greatly appreciated
+
+
+

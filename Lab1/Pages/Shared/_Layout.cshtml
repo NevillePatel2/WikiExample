@@ -1,0 +1,244 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    
+    if (Context.Session.GetString("username") != null)
+    {
+        if (Context.Session.GetString("role").Equals("Student")){
+            
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>@ViewData["Title"]</title>
+                <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+                <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+                <link rel="stylesheet" href="~/Lab1.styles.css" asp-append-version="true" />
+                
+            </head>
+            
+            <body>
+                <header>
+                    <style>
+                        .dropdown-menu a {
+                          color: #472b7f;
+                        }
+                    </style>
+                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light" style="background-color: #472b7f">
+                        <div class="container-fluid">
+
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="navbar-collapse collapse d-sm-flex justify-content-center">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white mx-3" asp-area="" asp-page="/Index">Home</a>
+                                    </li>
+
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-white mx-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Appointment Manager
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item" href="/OfficeHoursSignup">Office Hours Signup</a></li>
+                                            <li><a class="dropdown-item" href="/CreateMeeting">Create 1-On-1 Meeting</a></li>
+                                            <li><a class="dropdown-item" href="/UpcomingAppointments">Upcoming Appointments</a></li>
+                                        </ul>
+                                    </li>
+                                    @{
+                                        var count = Context.Session.GetString("stuNotificationCount");
+                                    }
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-white mx-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Account Manager <span class="badge bg-danger">@count</span>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                            <li><a class="dropdown-item" href="/StudentNotifications">Notification Hub <span class="badge bg-danger">@count</span></a></li>
+
+                                            <li><a class="dropdown-item" href="/EditProfile">Edit Profile</a></li>
+                                        </ul>
+                                    </li>
+
+
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white mx-3" asp-area="" asp-page="/Search">Search</a>
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+
+                <div class="container">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+
+                <footer class="border-top footer text-white" style="background-color: #472b7f">
+                    <div class="container style text-center">
+                        &copy; 2023 - Office Hours Management System - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                    </div>
+                </footer>
+
+
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="~/js/site.js" asp-append-version="true"></script>
+
+                @await RenderSectionAsync("Scripts", required: false)
+            </body>
+            </html>
+
+        }else if (Context.Session.GetString("role").Equals("Faculty")){
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>@ViewData["Title"]</title>
+                <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+                <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+                <link rel="stylesheet" href="~/Lab1.styles.css" asp-append-version="true" />
+            </head>
+
+            <body>
+                <header>
+                    <style>
+                        .dropdown-menu a {
+                          color: #472b7f;
+                        }
+                    </style>
+                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light" style="background-color: #472b7f">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler me-auto" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white mx-3" asp-area="" asp-page="/Index">Home</a>
+                                    </li>
+
+                      
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-white mx-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Office Hours Manager
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item" href="/ScheduleOfficeHours">Schedule Office Hours</a></li>
+                                            <li><a class="dropdown-item" href="/ViewOfficeHours">Upcoming Office Hours</a></li>
+                                            <li><a class="dropdown-item" href="/DataDashboard">Data Dashboard</a></li>
+                                        </ul>
+                                    </li>
+
+                                     @{
+                                        var count = Context.Session.GetString("facNotificationCount");
+                                    }
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-white mx-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Account Manager <span class="badge bg-danger">@count</span>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item" href="/FacultyNotifications">Notification Hub <span class="badge bg-danger">@count</span></a></li>
+                                            <li><a class="dropdown-item" href="/EditProfile">Edit Profile</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="ms-auto"></div>
+                        </div>
+                    </nav>
+                </header>
+
+                <div class="container">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+
+                <footer class="border-top footer text-white" style="background-color: #472b7f">
+                    <div class="container style text-center">
+                        &copy; 2023 - Office Hours Management System - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                    </div>
+                </footer>
+
+
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="~/js/site.js" asp-append-version="true"></script>
+
+                @await RenderSectionAsync("Scripts", required: false)
+            </body>
+            </html>
+
+
+        }
+    
+    }else if(Context.Session.GetString("username") == null)
+    {
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"]</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/Lab1.styles.css" asp-append-version="true" />
+    </head>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light" style="background-color: #472b7f">
+                <div class="container-fluid">
+                    <button class="navbar-toggler me-auto" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ms-auto"></div>
+                </div>
+            </nav>
+        </header>
+
+
+    <body>
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+
+            <footer class="border-top footer text-white" style="background-color: #472b7f">
+                <div class="container style text-center">
+                    &copy; 2023 - Office Hours Management System - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                </div>
+            </footer>
+
+
+
+
+
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+
+            @await RenderSectionAsync("Scripts", required: false)
+        </body>
+        </html>
+    }
+    }

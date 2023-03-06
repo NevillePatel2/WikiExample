@@ -1,0 +1,60 @@
+﻿@page
+@model Lab1.Pages.LoginAndSignup.LoginRoleModel
+@{
+    ViewData["Title"] = "Select Role";
+}
+<style>
+    body {
+        background-color: #DACCE6;
+    }
+
+    footer {
+        background-color: white;
+    }
+    
+    h3 {
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        color: #472b7f;
+        font-weight: bold;
+    }
+    
+    form {
+        width: 30%;
+        margin: 0 auto;
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px #888888;
+        background-color: white;
+    }
+    
+    label {
+        font-weight: bold;
+    }
+    
+    select {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        background-color: #472b7f;
+    }
+    
+    button {
+        margin-left: 50%;
+        transform: translateX(-50%);
+        
+    }
+</style>
+<br />
+
+<form method="post">
+    <h3>Select User Type:</h3>
+    <div class="form-group">
+        
+        <select class="form-control" id="roleSelect" name="SelectedRole">
+            <option>Student</option>
+            <option>Faculty</option>
+        </select>
+    </div>
+    <button type="submit" style="background-color: #472b7f;" class="btn btn-primary">Select</button>
+</form>

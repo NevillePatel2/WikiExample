@@ -1,0 +1,21 @@
+GO
+CREATE PROCEDURE sp_Lab3LoginFac
+--define incoming parameter data as variables
+@FacHashUsername AS NVARCHAR(50)
+AS
+BEGIN
+
+	SELECT FacHashPassword FROM FacHashLogin WHERE FacHashUsername = @FacHashUsername;
+
+END;
+
+GO
+CREATE PROCEDURE sp_Lab3LoginStu
+--define incoming parameter data as variables
+@StuHashUsername AS NVARCHAR(50)
+AS
+BEGIN
+
+	SELECT StuHashPassword FROM StuHashLogin WHERE StuHashUsername = @StuHashUsername;
+
+END;

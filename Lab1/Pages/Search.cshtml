@@ -1,0 +1,149 @@
+﻿@page
+@model Lab1.Pages.SearchModel
+@{
+    ViewData["Title"] = "Search";
+}
+<style>
+    body {
+        background-color: #DACCE6;
+        font-family: Arial, sans-serif;
+    }
+
+    h4 {
+        text-align: center;
+        font-weight: bold;
+        color: #472b7f;
+        margin-top: 2rem;
+    }
+
+    table {
+        margin: 2rem auto;
+        background-color: #FFFFFF;
+        border-radius: 0.5rem;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    th,
+    td {
+        padding: 1rem;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    th {
+        background-color: #472b7f;
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+
+    td {
+        background-color: #F7F7F7;
+        color: #333333;
+    }
+
+    .text-danger {
+        color: #FF4136;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #472b7f;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #472b7f;
+        }
+
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .alert-warning {
+        color: #856404;
+        background-color: #fff3cd;
+        border-color: #ffeeba;
+    }
+</style>
+<br/>
+@*Search Button*@
+<header class="d-flex justify-content-center align-items-center mt-4">
+    <div class="col-8 col-md-6 col-lg-4">
+        <form class="form-inline" method="post">
+            <input class="form-control mr-sm-2 w-100" asp-for="facultySearch" type="search" placeholder="Enter Faculty Name" aria-label="Search" required>
+            <button class="btn btn-primary my-2 my-sm-0 w-100" type="submit">Search</button>
+        </form>
+    </div>
+</header>
+
+@{
+    if (Model.IsValidSearch != true)
+    {
+        <br />
+        <div class="alert alert-warning" role="alert">
+            @Model.validSearchMessage
+        </div>
+    }
+}
+
+@{
+    if (Model.IsPostExecuted)
+    {
+        if (Model.FacultySearchOfficeHoursList.Count > 0)
+        {
+            
+            <h4>Upcoming Office Hours For @Model.facultySearch:</h4>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Professor:</th>
+                        <th>Date:</th>
+                        <th>Start Time:</th>
+                        <th>End Time:</th>
+                        <th>Purpose:</th>
+                        <th>Location:</th>
+                        <th>Signup:</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var SearchOfficeHours in Model.FacultySearchOfficeHoursList)
+                        {
+                            <tr>
+                                <td>@SearchOfficeHours.facFirstName @SearchOfficeHours.facLastName</td>
+                                <td>@SearchOfficeHours.date</td>
+                                <td>@SearchOfficeHours.startTime</td>
+                                <td>@SearchOfficeHours.endTime</td>
+                                <td>@SearchOfficeHours.purpose</td>
+                                <td>@SearchOfficeHours.roomNumber</td>
+                                <td>
+                                    <a asp-page="StudentSignUp" class="btn btn-primary" asp-route-officehoursid="@SearchOfficeHours.officeHoursID">Select</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <br />
+            <div class="alert alert-warning" role="alert">
+                @Model.warningMessage
+            </div>
+        }
+    }
+}
+
+

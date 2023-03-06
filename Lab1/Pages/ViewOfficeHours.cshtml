@@ -1,0 +1,98 @@
+﻿@page
+@model Lab1.Pages.ViewMeetingsModel
+@{
+    ViewData["Title"] = "View Office Hours";
+}
+
+<style>
+    body {
+        background-color: #DACCE6;
+        font-family: Arial, sans-serif;
+    }
+
+    h3 {
+        text-align: center;
+        font-weight: bold;
+        color: #472b7f;
+        margin-top: 2rem;
+    }
+
+    table {
+        margin: 2rem auto;
+        background-color: #FFFFFF;
+        border-radius: 0.5rem;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    th,
+    td {
+        padding: 1rem;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    th {
+        background-color: #472b7f;
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+
+    td {
+        background-color: #F7F7F7;
+        color: #333333;
+    }
+
+    .text-danger {
+        color: #FF4136;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #472b7f;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #0062B1;
+        }
+</style>
+
+<h3>My Upcoming Office Hours</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Professor:</th>
+            <th>Date:</th>
+            <th>Start Time:</th>
+            <th>End Time:</th>
+            <th>Purpose:</th>
+            <th>Location:</th>
+            <th>Manage:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var SpecificOfficeHours in Model.SpecificOfficeHoursList)
+            {
+                <tr>
+                    <td>@SpecificOfficeHours.facFirstName @SpecificOfficeHours.facLastName</td>
+                    <td>@SpecificOfficeHours.date</td>
+                    <td>@SpecificOfficeHours.startTime</td>
+                    <td>@SpecificOfficeHours.endTime</td>
+                    <td>@SpecificOfficeHours.purpose</td>
+                    <td>@SpecificOfficeHours.roomNumber</td>
+                    <td>
+                        <a asp-page="ManageOfficeHours" class="btn btn-primary" asp-route-officehoursid="@SpecificOfficeHours.officeHoursID">Select</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
